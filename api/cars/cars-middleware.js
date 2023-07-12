@@ -36,7 +36,7 @@ function checkVinNumberValid(req, res, next) {
 async function checkVinNumberUnique(req, res, next) {
   const { vin } = req.body;
   try {
-    const car = await db("cars").where({ vin }).first();
+    const car = await Cars.getByVin(vin);
     if (car) {
       res.status(400).json({ message: `VIN ${vin} already exists` });
     } else {

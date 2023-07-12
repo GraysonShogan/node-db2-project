@@ -1,6 +1,6 @@
 const express = require("express");
 const knex = require("knex");
-const dbConfig = require("./knexfile");
+const dbConfig = require("../knexfile");
 
 const app = express();
 
@@ -52,8 +52,9 @@ app.post("/cars", async (req, res) => {
   }
 });
 
-app.listen(3000, () => {
-  console.log("Server listening on port 3000");
+const port = 3000;
+app.listen(port, () => {
+  console.log(`Server listening on port ${port}`);
 });
 
-module.exports = server;
+module.exports = app;
